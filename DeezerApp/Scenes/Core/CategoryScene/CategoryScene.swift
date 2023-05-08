@@ -7,26 +7,35 @@
 
 import UIKit
 
-protocol CategorySceneInterface {
-    func configureUI()
-    func configureCollectionView()
+enum Page {
+    case category
+    case artist
 }
 
 final class CategoryScene: UIViewController {
-
-    private let viewModel = CategorySceneViewModel()
+    
     private var collectionView: UICollectionView!
+    var cellModel: [CellModel] = []
+    
+    var page: Page = .category
+    var id: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.view = self
-        viewModel.viewDidLoad()
-        // Do any additional setup after loading the view.
+        configureUI()
+        configureCollectionView()
     }
-}
-
-extension CategoryScene: CategorySceneInterface {
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if self.page == .category {
+            getCategory()
+        } else {
+           getArtist()
+        }
+        
+    }
+    
     func configureUI() {
         title = "Category"
         
@@ -42,7 +51,8 @@ extension CategoryScene: CategorySceneInterface {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(CategorySceneCell.self,
+                                forCellWithReuseIdentifier: CategorySceneCell.cellIdentifier)
         
         view.addSubview(collectionView)
         
@@ -53,16 +63,50 @@ extension CategoryScene: CategorySceneInterface {
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
+    
+    func reloadCollectionView() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
+    
+    func getCategory() {
+        ServiceManager.shared.getData(url: NetworkHelper.shared.baseURL) { result in
+            switch result {
+                
+            case .success(let category):
+                self.cellModel = category
+                self.reloadCollectionView()
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func getArtist() {
+        ServiceManager.shared.getData(url: NetworkHelper.shared.getGenreURL(id: id)) { result in
+            switch result {
+
+            case .success(let category):
+                self.cellModel = category
+                self.reloadCollectionView()
+            case .failure(let error):
+                print(error)
+            }
+
+        }
+    }
 }
 
 extension CategoryScene: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return cellModel.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = UIColor.systemOrange
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategorySceneCell.cellIdentifier,
+                                                      for: indexPath) as! CategorySceneCell
+        cell.getImage(cellModel[indexPath.item])
         cell.layer.cornerRadius = 5
         return cell
     }
@@ -71,6 +115,22 @@ extension CategoryScene: UICollectionViewDelegate, UICollectionViewDataSource, U
         let bounds = UIScreen.main.bounds
         let width = (bounds.width-30)/2
         return CGSize(width: width, height: width)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if self.page == .category {
+            let vc = CategoryScene()
+            vc.page = .artist
+            
+            if let id = cellModel[indexPath.item].id {
+                vc.id = id
+            }
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+            //Yeni bir view oluştur
+        }
+        
     }
     
 }

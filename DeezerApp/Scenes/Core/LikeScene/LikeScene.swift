@@ -73,7 +73,7 @@ extension LikeScene: UICollectionViewDelegate, UICollectionViewDataSource, UICol
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let bounds = UIScreen.main.bounds
         let width = (bounds.width-30)
-        return CGSize(width: width, height: width / 2)
+        return CGSize(width: width, height: width / 3)
     }
     
     
