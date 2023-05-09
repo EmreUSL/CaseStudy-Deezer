@@ -31,11 +31,8 @@ class ArtistView: UIViewController {
         view.backgroundColor = UIColor.systemTeal
         navigationController?.navigationBar.prefersLargeTitles = true
         
-     
         configureUI()
         configureTableView()
-     
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,8 +48,8 @@ class ArtistView: UIViewController {
     
     func configureTableView() {
         tableView = UITableView(frame: .zero, style: .grouped)
-        tableView.register(UITableViewCell.self,
-                           forCellReuseIdentifier: "cell")
+        tableView.register(ArtistDetailViewCell.self,
+                           forCellReuseIdentifier: ArtistDetailViewCell.identifier)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -69,7 +66,6 @@ class ArtistView: UIViewController {
         
         tableView.tableHeaderView = headerView
         
-      
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
@@ -83,16 +79,19 @@ class ArtistView: UIViewController {
     private func getArtistDetail() {
         ServiceManager.shared.getArtist(url: NetworkHelper.shared.getArtistURL(id: id)) { result in
             switch result {
-                
             case .success(let artist):
                 self.model = artist
-                self.configureUI()
-    
+                self.reloadTableView()
             case .failure(let error):
                 print(error)
             }
         }
-        
+    }
+    
+    private func reloadTableView() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 }
 
@@ -102,9 +101,9 @@ extension ArtistView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell",
-                                                       for: indexPath)
-        cell.backgroundColor = UIColor.red
+        let cell = tableView.dequeueReusableCell(withIdentifier: ArtistDetailViewCell.identifier,
+                                                       for: indexPath) as! ArtistDetailViewCell
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -115,8 +114,4 @@ extension ArtistView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         40
     }
-    
-    
-    
-    
 }

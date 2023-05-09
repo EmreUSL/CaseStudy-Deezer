@@ -51,8 +51,8 @@ final class CategoryView: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(CategorySceneCell.self,
-                                forCellWithReuseIdentifier: CategorySceneCell.cellIdentifier)
+        collectionView.register(CategoryViewCell.self,
+                                forCellWithReuseIdentifier: CategoryViewCell.cellIdentifier)
         collectionView.backgroundColor = UIColor.systemTeal
         
         view.addSubview(collectionView)
@@ -105,8 +105,8 @@ extension CategoryView: UICollectionViewDelegate, UICollectionViewDataSource, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategorySceneCell.cellIdentifier,
-                                                      for: indexPath) as! CategorySceneCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryViewCell.cellIdentifier,
+                                                      for: indexPath) as! CategoryViewCell
         cell.getImage(cellModel[indexPath.item])
         cell.layer.cornerRadius = 5
         return cell

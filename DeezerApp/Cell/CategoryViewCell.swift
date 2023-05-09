@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 import SDWebImage
 
-class CategorySceneCell: UICollectionViewCell {
+class CategoryViewCell: UICollectionViewCell {
     
     static let cellIdentifier = "categoryCell"
     
