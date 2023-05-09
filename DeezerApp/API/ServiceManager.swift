@@ -39,6 +39,20 @@ class ServiceManager {
                 completion(.failure(error))
             }
         }
+    }
+    
+    func getAlbum(url: String, completion: @escaping (Result<[Datum], ErrorTypes>) -> Void) {
+        NetworkManager.shared.request(type: ArtistResponse.self,
+                                      url: url,
+                                      method: .get) { response in
+            switch response {
+                
+            case .success(let category):
+                completion(.success(category.data))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
         
     }
     

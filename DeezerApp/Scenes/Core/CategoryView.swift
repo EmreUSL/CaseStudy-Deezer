@@ -132,8 +132,13 @@ extension CategoryView: UICollectionViewDelegate, UICollectionViewDataSource, UI
             let vc = ArtistView()
             
             if let id = cellModel[indexPath.item].id {
+                print(id)
                 vc.id = id
             }
+            
+            vc.headerPicture = cellModel[indexPath.item].picture!
+            vc.navTitle = cellModel[indexPath.item].name!
+            
             navigationController?.pushViewController(vc, animated: true)
         }
         

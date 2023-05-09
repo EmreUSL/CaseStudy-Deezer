@@ -10,9 +10,13 @@ import UIKit
 class ArtistView: UIViewController {
     
     private var tableView: UITableView!
-    var model: ArtistModel?
+    var model: [Datum] = []
+    
+    var navTitle: String = ""
+    var headerPicture: String = ""
     
     var id: Int = 0
+    
     
     private var imageView: UIImageView = {
         let imageView = UIImageView()
@@ -40,10 +44,7 @@ class ArtistView: UIViewController {
     }
     
     private func configureUI() {
-        guard let name = model?.name else {
-            return
-        }
-        title = name
+        title = navTitle
     }
     
     func configureTableView() {
@@ -56,28 +57,26 @@ class ArtistView: UIViewController {
         tableView.backgroundColor = UIColor.systemTeal
         
         
-        
-        
         let headerView = HeaderView(frame: CGRect(x: 0, y: 0,
                                                       width: view.bounds.width,
                                                       height: 250))
         
-        headerView.configureHeader(imageURL: model?.picture)
-        
+       
         tableView.tableHeaderView = headerView
+        headerView.configureHeader(imageURL: headerPicture)
         
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10),
-            tableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10),
+            tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
     
     private func getArtistDetail() {
-        ServiceManager.shared.getArtist(url: NetworkHelper.shared.getArtistURL(id: id)) { result in
+        ServiceManager.shared.getAlbum(url: NetworkHelper.shared.getAlbum(id: id)) { result in
             switch result {
             case .success(let artist):
                 self.model = artist
@@ -86,6 +85,10 @@ class ArtistView: UIViewController {
                 print(error)
             }
         }
+    }
+    
+    private func getAlbum() {
+        
     }
     
     private func reloadTableView() {
@@ -97,12 +100,13 @@ class ArtistView: UIViewController {
 
 extension ArtistView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return model.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ArtistDetailViewCell.identifier,
                                                        for: indexPath) as! ArtistDetailViewCell
+        cell.configureCell(model: model[indexPath.row])
         cell.selectionStyle = .none
         return cell
     }

@@ -33,7 +33,7 @@ final class LikeView: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(DetailViewCell.self, forCellWithReuseIdentifier: DetailViewCell.identifier)
         collectionView.backgroundColor = UIColor.systemTeal
         
         
@@ -56,7 +56,8 @@ extension LikeView: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailViewCell.identifier,
+                                                      for: indexPath) as! DetailViewCell
         cell.backgroundColor = UIColor.systemGreen
         cell.layer.cornerRadius = 5
         return cell

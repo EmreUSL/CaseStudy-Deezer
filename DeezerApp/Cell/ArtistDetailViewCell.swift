@@ -6,14 +6,15 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ArtistDetailViewCell: UITableViewCell {
     
     private let view: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.green
+        view.backgroundColor = UIColor(red: 0.7, green: 0.6, blue: 1, alpha: 1.0)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 5
+        view.layer.cornerRadius = 10
         return view
     }()
     
@@ -60,11 +61,15 @@ class ArtistDetailViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        cellImageView.image = nil
+    }
+    
     private func applyConstraint() {
         NSLayoutConstraint.activate([
             view.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
-            view.leftAnchor.constraint(equalTo: contentView.leftAnchor),
-            view.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+            view.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10),
+            view.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10),
             view.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
             
             cellImageView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -77,6 +82,16 @@ class ArtistDetailViewCell: UITableViewCell {
             dateLabel.topAnchor.constraint(equalTo: albumLabel.bottomAnchor, constant: 10),
             dateLabel.leadingAnchor.constraint(equalTo: albumLabel.leadingAnchor),
         ])
+    }
+    
+    public func configureCell(model: Datum) {
+        guard let url = model.album?.cover else {
+            return
+        }
+        
+        albumLabel.text = model.title
+        
+        cellImageView.kf.setImage(with: URL(string: url))
     }
 
 }
