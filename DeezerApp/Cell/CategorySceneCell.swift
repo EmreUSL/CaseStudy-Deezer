@@ -19,12 +19,25 @@ class CategorySceneCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 10
         return imageView
+    }()
+    
+    private var label: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.textColor = UIColor.yellow
+        label.font = .boldSystemFont(ofSize: 25)
+        label.backgroundColor = UIColor.gray.withAlphaComponent(0.3)
+        return label
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(imageView)
+        contentView.addSubview(label)
         addConstraints()
     }
     
@@ -43,6 +56,11 @@ class CategorySceneCell: UICollectionViewCell {
             imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            
+            label.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -30),
+            label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         ])
     }
     
@@ -51,6 +69,7 @@ class CategorySceneCell: UICollectionViewCell {
             return
         }
         
+        label.text = model.name
         imageView.kf.setImage(with: URL(string: url))
     }
 }

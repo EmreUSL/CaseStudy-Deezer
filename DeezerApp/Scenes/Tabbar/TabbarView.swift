@@ -7,10 +7,10 @@
 
 import UIKit
 
-final class TabbarScene: UITabBarController {
+final class TabbarView: UITabBarController {
     
-    let CategoryVC = UINavigationController(rootViewController: CategoryScene())
-    let LikeSceneVC = UINavigationController(rootViewController: LikeScene())
+    let CategoryVC = UINavigationController(rootViewController: CategoryView())
+    let LikeSceneVC = UINavigationController(rootViewController: LikeView())
 
     override func viewDidLoad() {
         super.viewDidLoad()

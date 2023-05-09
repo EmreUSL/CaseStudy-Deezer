@@ -26,4 +26,8 @@ class NetworkHelper {
     func getGenreURL(id: Int) -> String {
         return "https://api.deezer.com/genre/\(id)/artists"
     }
+    
+    func getArtistURL(id: Int) -> String {
+        return "https://api.deezer.com/artist/\(id)"
+    }
 }

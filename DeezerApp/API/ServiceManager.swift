@@ -27,4 +27,19 @@ class ServiceManager {
 
     }
     
+    func getArtist(url: String, completion: @escaping (Result<ArtistModel, ErrorTypes>) -> Void) {
+        NetworkManager.shared.request(type: ArtistModel.self,
+                                      url: url,
+                                      method: .get) { response in
+            switch response {
+                
+            case .success(let category):
+                completion(.success(category))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+        
+    }
+    
 }

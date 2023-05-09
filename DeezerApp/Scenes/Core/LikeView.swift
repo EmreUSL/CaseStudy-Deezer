@@ -7,27 +7,18 @@
 
 import UIKit
 
-protocol LikeSceneInterface {
-    func configureUI()
-    func configureCollectionView()
-}
 
-final class LikeScene: UIViewController {
+final class LikeView: UIViewController {
 
-    private let viewModel = LikeSceneViewModel()
     private var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        viewModel.view = self
-        viewModel.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        configureUI()
+        configureCollectionView()
     }
-}
-
-extension LikeScene: LikeSceneInterface {
+    
     func configureUI() {
         title = "Follow List"
         view.backgroundColor = UIColor.systemTeal
@@ -43,6 +34,8 @@ extension LikeScene: LikeSceneInterface {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.backgroundColor = UIColor.systemTeal
+        
         
         view.addSubview(collectionView)
         
@@ -53,11 +46,10 @@ extension LikeScene: LikeSceneInterface {
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-        
     
 }
 
-extension LikeScene: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension LikeView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10

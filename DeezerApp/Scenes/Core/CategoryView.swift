@@ -12,7 +12,7 @@ enum Page {
     case artist
 }
 
-final class CategoryScene: UIViewController {
+final class CategoryView: UIViewController {
     
     private var collectionView: UICollectionView!
     var cellModel: [CellModel] = []
@@ -31,7 +31,7 @@ final class CategoryScene: UIViewController {
         if self.page == .category {
             getCategory()
         } else {
-           getArtist()
+            getArtist()
         }
         
     }
@@ -53,6 +53,7 @@ final class CategoryScene: UIViewController {
         collectionView.dataSource = self
         collectionView.register(CategorySceneCell.self,
                                 forCellWithReuseIdentifier: CategorySceneCell.cellIdentifier)
+        collectionView.backgroundColor = UIColor.systemTeal
         
         view.addSubview(collectionView)
         
@@ -86,19 +87,19 @@ final class CategoryScene: UIViewController {
     func getArtist() {
         ServiceManager.shared.getData(url: NetworkHelper.shared.getGenreURL(id: id)) { result in
             switch result {
-
+                
             case .success(let category):
                 self.cellModel = category
                 self.reloadCollectionView()
             case .failure(let error):
                 print(error)
             }
-
+            
         }
     }
 }
 
-extension CategoryScene: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension CategoryView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cellModel.count
     }
@@ -120,7 +121,7 @@ extension CategoryScene: UICollectionViewDelegate, UICollectionViewDataSource, U
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if self.page == .category {
-            let vc = CategoryScene()
+            let vc = CategoryView()
             vc.page = .artist
             
             if let id = cellModel[indexPath.item].id {
@@ -128,7 +129,12 @@ extension CategoryScene: UICollectionViewDelegate, UICollectionViewDataSource, U
             }
             navigationController?.pushViewController(vc, animated: true)
         } else {
-            //Yeni bir view oluştur
+            let vc = ArtistView()
+            
+            if let id = cellModel[indexPath.item].id {
+                vc.id = id
+            }
+            navigationController?.pushViewController(vc, animated: true)
         }
         
     }
