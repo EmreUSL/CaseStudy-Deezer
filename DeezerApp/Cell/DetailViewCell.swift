@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CryptoKit
 
 class DetailViewCell: UICollectionViewCell {
     
@@ -19,9 +20,8 @@ class DetailViewCell: UICollectionViewCell {
     
     private let label: UILabel = {
         let label = UILabel()
-        label.text = "Büyük İnsan"
         label.numberOfLines = 0
-        label.font = .boldSystemFont(ofSize: 20)
+        label.font = .boldSystemFont(ofSize: 18)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -58,21 +58,29 @@ class DetailViewCell: UICollectionViewCell {
         fatalError()
     }
     
+    public func configureCell(name: String, image: String) {
+        label.text = name
+        
+    }
+    
     private func addConstraints() {
         NSLayoutConstraint.activate([
             cellImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             cellImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            cellImageView.widthAnchor.constraint(equalToConstant: 125),
+            cellImageView.widthAnchor.constraint(equalToConstant: 120),
             
             label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
             label.leadingAnchor.constraint(equalTo: cellImageView.trailingAnchor, constant: 25),
+            label.widthAnchor.constraint(equalToConstant: 175),
             
             button.topAnchor.constraint(equalTo: label.topAnchor),
             button.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             
-            minuteLabel.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 10),
             minuteLabel.leadingAnchor.constraint(equalTo: label.leadingAnchor),
+            minuteLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15)
 
         ])
     }
 }
+
+

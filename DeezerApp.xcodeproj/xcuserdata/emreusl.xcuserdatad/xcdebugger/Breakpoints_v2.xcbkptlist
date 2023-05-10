@@ -39,137 +39,47 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6100CE6A-CC54-4708-BD4F-E78AF343530C"
-            shouldBeEnabled = "Yes"
+            uuid = "8426A4D1-2B31-47F9-9F63-99F89686C009"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DeezerApp/Scenes/Other/ArtistView.swift"
+            filePath = "DeezerApp/Scenes/Core/LikeView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "getArtistDetail()"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "collectionView(_:didSelectItemAt:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "6100CE6A-CC54-4708-BD4F-E78AF343530C - 15eedfe38e50ab9e"
+                  uuid = "8426A4D1-2B31-47F9-9F63-99F89686C009 - 7d29d14e543ba3e0"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;DeezerApp.ArtistModel, DeezerApp.ErrorTypes&gt;) -&gt; () in DeezerApp.ArtistView.getArtistDetail() -&gt; ()"
+                  symbolName = "DeezerApp.LikeView.collectionView(_: __C.UICollectionView, didSelectItemAt: Foundation.IndexPath) -&gt; ()"
                   moduleName = "DeezerApp"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/emreusl/Desktop/Git/DeezerApp/DeezerApp/Scenes/Other/ArtistView.swift"
+                  urlString = "file:///Users/emreusl/Desktop/Git/DeezerApp/DeezerApp/Scenes/Core/LikeView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "84"
-                  endingLineNumber = "84"
-                  offsetFromSymbolStart = "604">
+                  startingLineNumber = "123"
+                  endingLineNumber = "123"
+                  offsetFromSymbolStart = "412">
                </Location>
                <Location
-                  uuid = "6100CE6A-CC54-4708-BD4F-E78AF343530C - 15eedfe38e50abbf"
+                  uuid = "8426A4D1-2B31-47F9-9F63-99F89686C009 - 7d29d14e543ba243"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;DeezerApp.ArtistModel, DeezerApp.ErrorTypes&gt;) -&gt; () in DeezerApp.ArtistView.getArtistDetail() -&gt; ()"
+                  symbolName = "DeezerApp.LikeView.collectionView(_: __C.UICollectionView, didSelectItemAt: Foundation.IndexPath) -&gt; ()"
                   moduleName = "DeezerApp"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/emreusl/Desktop/Git/DeezerApp/DeezerApp/Scenes/Other/ArtistView.swift"
+                  urlString = "file:///Users/emreusl/Desktop/Git/DeezerApp/DeezerApp/Scenes/Core/LikeView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "83"
-                  endingLineNumber = "83"
-                  offsetFromSymbolStart = "228">
-               </Location>
-               <Location
-                  uuid = "6100CE6A-CC54-4708-BD4F-E78AF343530C - 15eedfe38e50ab5c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;DeezerApp.ArtistModel, DeezerApp.ErrorTypes&gt;) -&gt; () in DeezerApp.ArtistView.getArtistDetail() -&gt; ()"
-                  moduleName = "DeezerApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/emreusl/Desktop/Git/DeezerApp/DeezerApp/Scenes/Other/ArtistView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "82"
-                  endingLineNumber = "82"
-                  offsetFromSymbolStart = "92">
-               </Location>
-               <Location
-                  uuid = "6100CE6A-CC54-4708-BD4F-E78AF343530C - 15eedfe38e50ab5c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;DeezerApp.ArtistModel, DeezerApp.ErrorTypes&gt;) -&gt; () in DeezerApp.ArtistView.getArtistDetail() -&gt; ()"
-                  moduleName = "DeezerApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/emreusl/Desktop/Git/DeezerApp/DeezerApp/Scenes/Other/ArtistView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "82"
-                  endingLineNumber = "82"
-                  offsetFromSymbolStart = "368">
-               </Location>
-               <Location
-                  uuid = "6100CE6A-CC54-4708-BD4F-E78AF343530C - 15eedfe38e50ab7d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;DeezerApp.ArtistModel, DeezerApp.ErrorTypes&gt;) -&gt; () in DeezerApp.ArtistView.getArtistDetail() -&gt; ()"
-                  moduleName = "DeezerApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/emreusl/Desktop/Git/DeezerApp/DeezerApp/Scenes/Other/ArtistView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "81"
-                  endingLineNumber = "81"
-                  offsetFromSymbolStart = "228">
-               </Location>
-               <Location
-                  uuid = "6100CE6A-CC54-4708-BD4F-E78AF343530C - fdffd8b0519007a4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;DeezerApp.Datum, DeezerApp.ErrorTypes&gt;) -&gt; () in DeezerApp.ArtistView.getArtistDetail() -&gt; ()"
-                  moduleName = "DeezerApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/emreusl/Desktop/Git/DeezerApp/DeezerApp/Scenes/Other/ArtistView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "78"
-                  endingLineNumber = "78"
-                  offsetFromSymbolStart = "296">
-               </Location>
-               <Location
-                  uuid = "6100CE6A-CC54-4708-BD4F-E78AF343530C - fdffd8b0519007a4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;DeezerApp.Datum, DeezerApp.ErrorTypes&gt;) -&gt; () in DeezerApp.ArtistView.getArtistDetail() -&gt; ()"
-                  moduleName = "DeezerApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/emreusl/Desktop/Git/DeezerApp/DeezerApp/Scenes/Other/ArtistView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "78"
-                  endingLineNumber = "78"
-                  offsetFromSymbolStart = "332">
-               </Location>
-               <Location
-                  uuid = "6100CE6A-CC54-4708-BD4F-E78AF343530C - 51cc65d48f28a08d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;DeezerApp.Datum&gt;, DeezerApp.ErrorTypes&gt;) -&gt; () in DeezerApp.ArtistView.getArtistDetail() -&gt; ()"
-                  moduleName = "DeezerApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/emreusl/Desktop/Git/DeezerApp/DeezerApp/Scenes/Other/ArtistView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "78"
-                  endingLineNumber = "78"
-                  offsetFromSymbolStart = "136">
+                  startingLineNumber = "126"
+                  endingLineNumber = "126"
+                  offsetFromSymbolStart = "132">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -177,77 +87,122 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9168E31C-5D4E-4BB8-85F9-74EA6AFE20F8"
+            uuid = "22EAF38F-AFE4-4B74-B1F0-311AC2F9F058"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DeezerApp/Scenes/Other/ArtistView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "getArtistDetail()"
-            landmarkType = "7">
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "imageView"
+            landmarkType = "24">
             <Locations>
                <Location
-                  uuid = "9168E31C-5D4E-4BB8-85F9-74EA6AFE20F8 - 617b52cc10703a82"
-                  shouldBeEnabled = "Yes"
+                  uuid = "22EAF38F-AFE4-4B74-B1F0-311AC2F9F058 - 789d91eed82eb6b6"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "DeezerApp.ArtistView.getArtistDetail() -&gt; ()"
+                  symbolName = "closure #1 () -&gt; __C.UIImageView in variable initialization expression of DeezerApp.ArtistView.imageView : __C.UIImageView"
                   moduleName = "DeezerApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/emreusl/Desktop/Git/DeezerApp/DeezerApp/Scenes/Other/ArtistView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "75"
-                  endingLineNumber = "75"
-                  offsetFromSymbolStart = "40">
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "28">
                </Location>
                <Location
-                  uuid = "9168E31C-5D4E-4BB8-85F9-74EA6AFE20F8 - fdffd8b0519007c5"
-                  shouldBeEnabled = "Yes"
+                  uuid = "22EAF38F-AFE4-4B74-B1F0-311AC2F9F058 - 79a38c06b2ce856d"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;DeezerApp.Datum, DeezerApp.ErrorTypes&gt;) -&gt; () in DeezerApp.ArtistView.getArtistDetail() -&gt; ()"
+                  symbolName = "DeezerApp.ArtistView.imageView.getter : __C.UIImageView"
                   moduleName = "DeezerApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/emreusl/Desktop/Git/DeezerApp/DeezerApp/Scenes/Other/ArtistView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "77"
-                  endingLineNumber = "77"
-                  offsetFromSymbolStart = "92">
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "88">
                </Location>
                <Location
-                  uuid = "9168E31C-5D4E-4BB8-85F9-74EA6AFE20F8 - fdffd8b0519007c5"
-                  shouldBeEnabled = "Yes"
+                  uuid = "22EAF38F-AFE4-4B74-B1F0-311AC2F9F058 - c93c26c998e39161"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;DeezerApp.Datum, DeezerApp.ErrorTypes&gt;) -&gt; () in DeezerApp.ArtistView.getArtistDetail() -&gt; ()"
+                  symbolName = "DeezerApp.ArtistView.imageView.setter : __C.UIImageView"
                   moduleName = "DeezerApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/emreusl/Desktop/Git/DeezerApp/DeezerApp/Scenes/Other/ArtistView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "77"
-                  endingLineNumber = "77"
-                  offsetFromSymbolStart = "128">
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "112">
                </Location>
                <Location
-                  uuid = "9168E31C-5D4E-4BB8-85F9-74EA6AFE20F8 - 51cc65d48f28a0ec"
-                  shouldBeEnabled = "Yes"
+                  uuid = "22EAF38F-AFE4-4B74-B1F0-311AC2F9F058 - 3c4926ff8ecad812"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;DeezerApp.Datum&gt;, DeezerApp.ErrorTypes&gt;) -&gt; () in DeezerApp.ArtistView.getArtistDetail() -&gt; ()"
+                  symbolName = "DeezerApp.ArtistView.imageView.modify : __C.UIImageView"
                   moduleName = "DeezerApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/emreusl/Desktop/Git/DeezerApp/DeezerApp/Scenes/Other/ArtistView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "77"
-                  endingLineNumber = "77"
-                  offsetFromSymbolStart = "96">
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "22EAF38F-AFE4-4B74-B1F0-311AC2F9F058 - 60f9947d486c3a61"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DeezerApp.ArtistView.imageView.modify : __C.UIImageView with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "DeezerApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emreusl/Desktop/Git/DeezerApp/DeezerApp/Scenes/Other/ArtistView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "22EAF38F-AFE4-4B74-B1F0-311AC2F9F058 - a7b051e552e28431"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DeezerApp.ArtistView.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; DeezerApp.ArtistView"
+                  moduleName = "DeezerApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emreusl/Desktop/Git/DeezerApp/DeezerApp/Scenes/Other/ArtistView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "404">
+               </Location>
+               <Location
+                  uuid = "22EAF38F-AFE4-4B74-B1F0-311AC2F9F058 - f0c620e7a408d3fe"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DeezerApp.ArtistView.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;DeezerApp.ArtistView&gt;"
+                  moduleName = "DeezerApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emreusl/Desktop/Git/DeezerApp/DeezerApp/Scenes/Other/ArtistView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "380">
                </Location>
             </Locations>
          </BreakpointContent>

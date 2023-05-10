@@ -10,6 +10,8 @@ import UIKit
 enum Page {
     case category
     case artist
+    case like
+    case album
 }
 
 final class CategoryView: UIViewController {
@@ -23,6 +25,8 @@ final class CategoryView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.layer.insertSublayer(Background.shared.gradientLayer(view), at:0)
+     
         configureUI()
         configureCollectionView()
     }
@@ -33,14 +37,12 @@ final class CategoryView: UIViewController {
         } else {
             getArtist()
         }
-        
     }
     
     func configureUI() {
         title = "Category"
-        
+        self.navigationController?.navigationBar.barTintColor = UIColor.white
         navigationController?.navigationBar.prefersLargeTitles = true
-        view.backgroundColor = UIColor.systemTeal
     }
     
     func configureCollectionView() {
@@ -53,8 +55,8 @@ final class CategoryView: UIViewController {
         collectionView.dataSource = self
         collectionView.register(CategoryViewCell.self,
                                 forCellWithReuseIdentifier: CategoryViewCell.cellIdentifier)
-        collectionView.backgroundColor = UIColor.systemTeal
-        
+        collectionView.backgroundColor = UIColor.white.withAlphaComponent(0.0)
+       
         view.addSubview(collectionView)
         
         NSLayoutConstraint.activate([
@@ -145,3 +147,5 @@ extension CategoryView: UICollectionViewDelegate, UICollectionViewDataSource, UI
     }
     
 }
+
+

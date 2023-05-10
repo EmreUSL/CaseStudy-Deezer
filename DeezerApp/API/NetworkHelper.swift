@@ -34,5 +34,9 @@ class NetworkHelper {
     func getAlbum(id: Int) -> String {
         return "https://api.deezer.com/artist/\(id)/top?limit=50"
     }
+    
+    func getTrack(id: Int) -> String {
+        return "https://api.deezer.com/album/\(id)/tracks"
+    }
 }
 

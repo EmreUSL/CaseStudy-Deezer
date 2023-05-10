@@ -28,9 +28,9 @@ class CategoryViewCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.textColor = UIColor.yellow
-        label.font = .boldSystemFont(ofSize: 25)
-        label.backgroundColor = UIColor.gray.withAlphaComponent(0.3)
+        label.textColor = UIColor.white
+        label.font = .boldSystemFont(ofSize: 20)
+        label.backgroundColor = UIColor.darkGray.withAlphaComponent(0.4)
         return label
     }()
     

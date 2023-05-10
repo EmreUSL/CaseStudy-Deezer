@@ -56,4 +56,17 @@ class ServiceManager {
         
     }
     
+    func getTrack(url: String, completion: @escaping (Result<[Tracks], ErrorTypes>) -> Void) {
+        NetworkManager.shared.request(type: AlbumResponse.self,
+                                      url: url,
+                                      method: .get) { response in
+            switch response {
+                
+            case .success(let category):
+                completion(.success(category.data))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
 }

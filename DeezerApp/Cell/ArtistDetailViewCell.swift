@@ -12,7 +12,7 @@ class ArtistDetailViewCell: UITableViewCell {
     
     private let view: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(red: 0.7, green: 0.6, blue: 1, alpha: 1.0)
+        view.backgroundColor = UIColor.darkGray.withAlphaComponent(0.7)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 10
         return view
@@ -29,7 +29,7 @@ class ArtistDetailViewCell: UITableViewCell {
     
     private let albumLabel: UILabel = {
         let label = UILabel()
-        label.text = "Seni Seven öldü"
+        label.textColor = .white
         label.numberOfLines = 0
         label.font = .boldSystemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -39,6 +39,7 @@ class ArtistDetailViewCell: UITableViewCell {
     private let dateLabel: UILabel = {
         let label = UILabel()
         label.text = "2020"
+        label.textColor = .white
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -48,9 +49,8 @@ class ArtistDetailViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = UIColor.systemTeal
+        backgroundColor = UIColor.white.withAlphaComponent(0.0)
         contentView.addSubview(view)
-        
         view.addSubview(cellImageView)
         view.addSubview(albumLabel)
         view.addSubview(dateLabel)
@@ -89,7 +89,7 @@ class ArtistDetailViewCell: UITableViewCell {
             return
         }
         
-        albumLabel.text = model.title
+        albumLabel.text = model.album?.title
         
         cellImageView.kf.setImage(with: URL(string: url))
     }

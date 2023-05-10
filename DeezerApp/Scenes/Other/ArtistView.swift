@@ -11,6 +11,7 @@ class ArtistView: UIViewController {
     
     private var tableView: UITableView!
     var model: [Datum] = []
+    var artistModel: ArtistModel?
     
     var navTitle: String = ""
     var headerPicture: String = ""
@@ -25,14 +26,12 @@ class ArtistView: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 10
-        imageView.backgroundColor = UIColor.red
-        
         return imageView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.systemTeal
+        view.layer.insertSublayer(Background.shared.gradientLayer(view), at:0)
         navigationController?.navigationBar.prefersLargeTitles = true
         
         configureUI()
@@ -54,7 +53,7 @@ class ArtistView: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = UIColor.systemTeal
+        tableView.backgroundColor = UIColor.white.withAlphaComponent(0.0)
         
         
         let headerView = HeaderView(frame: CGRect(x: 0, y: 0,
@@ -76,19 +75,35 @@ class ArtistView: UIViewController {
     }
     
     private func getArtistDetail() {
-        ServiceManager.shared.getAlbum(url: NetworkHelper.shared.getAlbum(id: id)) { result in
+        ServiceManager.shared.getArtist(url: NetworkHelper.shared.getArtistURL(id: id)) { result in
             switch result {
             case .success(let artist):
-                self.model = artist
-                self.reloadTableView()
+                self.artistModel = artist
+                if let url = self.artistModel?.tracklist {
+                    self.getAlbum(url: url)
+                }
             case .failure(let error):
                 print(error)
             }
         }
     }
     
-    private func getAlbum() {
+    private func getAlbum(url: String) {
         
+        ServiceManager.shared.getAlbum(url: url) { result in
+            switch result {
+            case .success(let artist):
+                for art in artist {
+                    if !self.model.contains(where: {$0 == art}) {
+                        self.model.append(art)
+                    }
+                }
+                // RELEASE DATE BİLGİSİ İLGİLİ API DA YOK
+                self.reloadTableView()
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     private func reloadTableView() {
@@ -97,6 +112,8 @@ class ArtistView: UIViewController {
         }
     }
 }
+
+
 
 extension ArtistView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -118,4 +135,18 @@ extension ArtistView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         40
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = LikeView()
+        
+        if let id = model[indexPath.row].album?.id{
+            vc.id = id
+        }
+        vc.title = model[indexPath.row].album?.title
+        vc.page = .album
+      
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
+
+
