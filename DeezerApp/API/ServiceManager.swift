@@ -10,9 +10,9 @@ import Foundation
 class ServiceManager {
     
     static let shared = ServiceManager()
-
+    
     func getData(url: String, completion: @escaping (Result<[CellModel], ErrorTypes>) -> Void) {
-     
+        
         NetworkManager.shared.request(type: ResponseModel.self,
                                       url: url,
                                       method: .get) { response in
@@ -24,7 +24,7 @@ class ServiceManager {
                 completion(.failure(error))
             }
         }
-
+        
     }
     
     func getArtist(url: String, completion: @escaping (Result<ArtistModel, ErrorTypes>) -> Void) {

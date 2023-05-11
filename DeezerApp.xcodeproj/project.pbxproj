@@ -10,6 +10,7 @@
 		643A091A2A0995940072DA3A /* ArtistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643A09192A0995940072DA3A /* ArtistView.swift */; };
 		643A091D2A09A4E90072DA3A /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643A091C2A09A4E90072DA3A /* HeaderView.swift */; };
 		643A091F2A09AC510072DA3A /* ArtistDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643A091E2A09AC510072DA3A /* ArtistDetailModel.swift */; };
+		644879182A0D3F9400B0FD6F /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644879172A0D3F9400B0FD6F /* MusicPlayer.swift */; };
 		64549CCD2A0AF23700E56287 /* AlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64549CCC2A0AF23700E56287 /* AlbumModel.swift */; };
 		64818E5C2A09661D009A7803 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64818E5B2A09661D009A7803 /* NetworkHelper.swift */; };
 		64818E5E2A096656009A7803 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64818E5D2A096656009A7803 /* NetworkManager.swift */; };
@@ -18,7 +19,6 @@
 		64818E662A0967AF009A7803 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 64818E652A0967AF009A7803 /* Alamofire */; };
 		64818E682A09693D009A7803 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64818E672A09693D009A7803 /* ServiceManager.swift */; };
 		64818E6B2A0973AC009A7803 /* CategoryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64818E6A2A0973AC009A7803 /* CategoryViewCell.swift */; };
-		64818E6E2A097AEF009A7803 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 64818E6D2A097AEF009A7803 /* SDWebImage */; };
 		6483C8462A0C3D830071966E /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6483C8452A0C3D830071966E /* UserDefaultManager.swift */; };
 		6483C8492A0C564B0071966E /* BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6483C8482A0C564B0071966E /* BackgroundColor.swift */; };
 		6494B8E02A0A511D004A06DC /* ArtistDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6494B8DF2A0A511D004A06DC /* ArtistDetailViewCell.swift */; };
@@ -36,6 +36,7 @@
 		643A09192A0995940072DA3A /* ArtistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistView.swift; sourceTree = "<group>"; };
 		643A091C2A09A4E90072DA3A /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		643A091E2A09AC510072DA3A /* ArtistDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailModel.swift; sourceTree = "<group>"; };
+		644879172A0D3F9400B0FD6F /* MusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
 		64549CCC2A0AF23700E56287 /* AlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumModel.swift; sourceTree = "<group>"; };
 		64818E5B2A09661D009A7803 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		64818E5D2A096656009A7803 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -62,7 +63,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64818E6E2A097AEF009A7803 /* SDWebImage in Frameworks */,
 				64818E632A096794009A7803 /* Kingfisher in Frameworks */,
 				64818E662A0967AF009A7803 /* Alamofire in Frameworks */,
 			);
@@ -123,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				6483C8482A0C564B0071966E /* BackgroundColor.swift */,
+				644879172A0D3F9400B0FD6F /* MusicPlayer.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -206,7 +207,6 @@
 			packageProductDependencies = (
 				64818E622A096794009A7803 /* Kingfisher */,
 				64818E652A0967AF009A7803 /* Alamofire */,
-				64818E6D2A097AEF009A7803 /* SDWebImage */,
 			);
 			productName = DeezerApp;
 			productReference = 649628532A0937C900A86768 /* DeezerApp.app */;
@@ -239,7 +239,6 @@
 			packageReferences = (
 				64818E612A096794009A7803 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				64818E642A0967AF009A7803 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				64818E6C2A097AEF009A7803 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 649628542A0937C900A86768 /* Products */;
 			projectDirPath = "";
@@ -282,6 +281,7 @@
 				64EB17F22A09449A0055AEA7 /* CategoryView.swift in Sources */,
 				6494B8E22A0A5CCE004A06DC /* DetailViewCell.swift in Sources */,
 				64549CCD2A0AF23700E56287 /* AlbumModel.swift in Sources */,
+				644879182A0D3F9400B0FD6F /* MusicPlayer.swift in Sources */,
 				64818E6B2A0973AC009A7803 /* CategoryViewCell.swift in Sources */,
 				6483C8462A0C3D830071966E /* UserDefaultManager.swift in Sources */,
 				649628592A0937C900A86768 /* SceneDelegate.swift in Sources */,
@@ -510,14 +510,6 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		64818E6C2A097AEF009A7803 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -530,11 +522,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 64818E642A0967AF009A7803 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		64818E6D2A097AEF009A7803 /* SDWebImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 64818E6C2A097AEF009A7803 /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -7,8 +7,11 @@
 
 import UIKit
 import CryptoKit
+import AVFoundation
 
 class DetailViewCell: UICollectionViewCell {
+    
+    var player: AVPlayer?
     
     private let cellImageView: UIImageView = {
         let imageView = UIImageView()
@@ -23,22 +26,24 @@ class DetailViewCell: UICollectionViewCell {
         label.numberOfLines = 0
         label.font = .boldSystemFont(ofSize: 18)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .white
         return label
     }()
     
     private let minuteLabel: UILabel = {
         let label = UILabel()
-        label.text = "2.35"
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .white
         return label
     }()
     
-    private let button: UIButton = {
+    let button: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "heart"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.imageView?.contentMode = .scaleAspectFit
+        button.tintColor = .white
         return button
     }()
     
@@ -52,15 +57,24 @@ class DetailViewCell: UICollectionViewCell {
         contentView.addSubview(minuteLabel)
         
         addConstraints()
+        
+        contentView.backgroundColor = UIColor.white.withAlphaComponent(0.2)
+        
     }
     
     required init(coder:NSCoder) {
         fatalError()
     }
     
-    public func configureCell(name: String, image: String) {
+    public func configureCell(name: String, image: String, duration: Int) {
         label.text = name
+        cellImageView.kf.setImage(with: URL(string: image))
         
+        minuteLabel.text = String(format: "\(duration / 60):%02d", duration % 60)
+    }
+    
+    public func playSound(preview: String) {
+        MusicPlayer.shared.playMusic(preview)
     }
     
     private func addConstraints() {

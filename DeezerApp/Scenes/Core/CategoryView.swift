@@ -25,7 +25,7 @@ final class CategoryView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.layer.insertSublayer(Background.shared.gradientLayer(view), at:0)
+        view.layer.insertSublayer(Background.shared.backgroundGradientLayer(view), at:0)
      
         configureUI()
         configureCollectionView()
@@ -48,8 +48,12 @@ final class CategoryView: UIViewController {
     func configureCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        layout.sectionInset = UIEdgeInsets(top: 0,
+                                           left: 10,
+                                           bottom: 0,
+                                           right: 10)
+        collectionView = UICollectionView(frame: .zero,
+                                          collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -140,7 +144,7 @@ extension CategoryView: UICollectionViewDelegate, UICollectionViewDataSource, UI
             
             vc.headerPicture = cellModel[indexPath.item].picture!
             vc.navTitle = cellModel[indexPath.item].name!
-            
+
             navigationController?.pushViewController(vc, animated: true)
         }
         

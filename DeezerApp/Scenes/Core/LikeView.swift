@@ -15,6 +15,7 @@ final class LikeView: UIViewController {
     var cellModel: [Tracks] = []
     
     var player: AVAudioPlayer?
+    var albumImage: String = ""
     
     var page: Page = .like
     var id: Int = 0
@@ -22,7 +23,7 @@ final class LikeView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.layer.insertSublayer(Background.shared.gradientLayer(view), at:0)
+        view.layer.insertSublayer(Background.shared.backgroundGradientLayer(view), at:0)
         configureUI()
         configureCollectionView()
     }
@@ -32,6 +33,7 @@ final class LikeView: UIViewController {
             title = "Follow List"
         } else {
             getTrack()
+            configureUI()
         }
     }
     
@@ -44,8 +46,12 @@ final class LikeView: UIViewController {
     func configureCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        layout.sectionInset = UIEdgeInsets(top: 0,
+                                           left: 10,
+                                           bottom: 0,
+                                           right: 10)
+        collectionView = UICollectionView(frame: .zero,
+                                          collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -69,7 +75,6 @@ final class LikeView: UIViewController {
             case .success(let result):
                 self.cellModel = result
                 self.reloadCollectionView()
-                self.configureUI()
             case .failure(let error):
                 print(error)
             }
@@ -101,17 +106,17 @@ extension LikeView: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             
         } else {
             if let name = cellModel[indexPath.item].title  {
-                if let image = cellModel[indexPath.item].md5_image {
-                    cell.configureCell(name: name, image: image)
+                if let duration = cellModel[indexPath.item].duration {
+                    cell.configureCell(name: name, image: albumImage, duration: duration)
                 }
             }
         }
-     
-      
-        cell.backgroundColor = UIColor.systemGreen
+
         cell.layer.cornerRadius = 5
         return cell
     }
+    
+
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let bounds = UIScreen.main.bounds
@@ -121,6 +126,14 @@ extension LikeView: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        if page == .like {
+            
+        } else {
+            let selectedCell = collectionView.cellForItem(at: indexPath) as! DetailViewCell
+            if let preview = cellModel[indexPath.item].preview {
+                selectedCell.playSound(preview: preview)
+            }
+        }
     }
 }
 

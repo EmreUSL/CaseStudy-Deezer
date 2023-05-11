@@ -46,8 +46,8 @@
             filePath = "DeezerApp/Scenes/Core/LikeView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
             landmarkName = "collectionView(_:didSelectItemAt:)"
             landmarkType = "7">
             <Locations>
@@ -88,14 +88,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "22EAF38F-AFE4-4B74-B1F0-311AC2F9F058"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DeezerApp/Scenes/Other/ArtistView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
             landmarkName = "imageView"
             landmarkType = "24">
             <Locations>
@@ -204,7 +204,146 @@
                   endingLineNumber = "22"
                   offsetFromSymbolStart = "380">
                </Location>
+               <Location
+                  uuid = "22EAF38F-AFE4-4B74-B1F0-311AC2F9F058 - 789d91eed82eb6b6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; __C.UIImageView in variable initialization expression of DeezerApp.ArtistView.imageView : __C.UIImageView"
+                  moduleName = "DeezerApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emreusl/Desktop/Git/DeezerApp/DeezerApp/Scenes/Other/ArtistView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "24">
+               </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "49236C58-DAA6-41D0-B22A-ADB53F643F3B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DeezerApp/Cell/DetailViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "playSound(preview:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "49236C58-DAA6-41D0-B22A-ADB53F643F3B - 6ce1e04fc2abb4f7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DeezerApp.DetailViewCell.playSound(preview: Swift.String) -&gt; ()"
+                  moduleName = "DeezerApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emreusl/Desktop/Git/DeezerApp/DeezerApp/Cell/DetailViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "224">
+               </Location>
+               <Location
+                  uuid = "49236C58-DAA6-41D0-B22A-ADB53F643F3B - 6ce1e04fc2abb4f7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DeezerApp.DetailViewCell.playSound(preview: Swift.String) -&gt; ()"
+                  moduleName = "DeezerApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emreusl/Desktop/Git/DeezerApp/DeezerApp/Cell/DetailViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "292">
+               </Location>
+               <Location
+                  uuid = "49236C58-DAA6-41D0-B22A-ADB53F643F3B - 6ce1e04fc2abb735"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DeezerApp.DetailViewCell.playSound(preview: Swift.String) -&gt; ()"
+                  moduleName = "DeezerApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emreusl/Desktop/Git/DeezerApp/DeezerApp/Cell/DetailViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "272">
+               </Location>
+               <Location
+                  uuid = "49236C58-DAA6-41D0-B22A-ADB53F643F3B - 6ce1e04fc2abb735"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DeezerApp.DetailViewCell.playSound(preview: Swift.String) -&gt; ()"
+                  moduleName = "DeezerApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emreusl/Desktop/Git/DeezerApp/DeezerApp/Cell/DetailViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "288">
+               </Location>
+               <Location
+                  uuid = "49236C58-DAA6-41D0-B22A-ADB53F643F3B - 6ce1e04fc2abb4f7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DeezerApp.DetailViewCell.playSound(preview: Swift.String) -&gt; ()"
+                  moduleName = "DeezerApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emreusl/Desktop/Git/DeezerApp/DeezerApp/Cell/DetailViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "260">
+               </Location>
+               <Location
+                  uuid = "49236C58-DAA6-41D0-B22A-ADB53F643F3B - 6ce1e04fc2abb4b1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DeezerApp.DetailViewCell.playSound(preview: Swift.String) -&gt; ()"
+                  moduleName = "DeezerApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emreusl/Desktop/Git/DeezerApp/DeezerApp/Cell/DetailViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "52">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F39509FA-FB42-40EC-BCB8-EF27235F1454"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DeezerApp/Cell/DetailViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "configureCell(name:image:duration:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

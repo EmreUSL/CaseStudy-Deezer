@@ -18,7 +18,6 @@ class ArtistView: UIViewController {
     
     var id: Int = 0
     
-    
     private var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.masksToBounds = true
@@ -31,7 +30,7 @@ class ArtistView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.layer.insertSublayer(Background.shared.gradientLayer(view), at:0)
+        view.layer.insertSublayer(Background.shared.backgroundGradientLayer(view), at:0)
         navigationController?.navigationBar.prefersLargeTitles = true
         
         configureUI()
@@ -113,8 +112,6 @@ class ArtistView: UIViewController {
     }
 }
 
-
-
 extension ArtistView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return model.count
@@ -122,7 +119,7 @@ extension ArtistView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ArtistDetailViewCell.identifier,
-                                                       for: indexPath) as! ArtistDetailViewCell
+                                                 for: indexPath) as! ArtistDetailViewCell
         cell.configureCell(model: model[indexPath.row])
         cell.selectionStyle = .none
         return cell
@@ -142,9 +139,9 @@ extension ArtistView: UITableViewDelegate, UITableViewDataSource {
         if let id = model[indexPath.row].album?.id{
             vc.id = id
         }
-        vc.title = model[indexPath.row].album?.title
+        vc.viewTitle = (model[indexPath.row].album?.title)!
         vc.page = .album
-      
+        vc.albumImage = (model[indexPath.row].album?.cover)!
         navigationController?.pushViewController(vc, animated: true)
     }
 }
