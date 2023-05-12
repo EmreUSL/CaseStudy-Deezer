@@ -29,8 +29,8 @@ class CategoryViewCell: UICollectionViewCell {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.textColor = UIColor.white
-        label.font = .boldSystemFont(ofSize: 20)
-        label.backgroundColor = UIColor.darkGray.withAlphaComponent(0.4)
+        label.font = .boldSystemFont(ofSize: 16)
+        label.backgroundColor = UIColor.darkGray.withAlphaComponent(0.6)
         return label
     }()
     
@@ -39,6 +39,11 @@ class CategoryViewCell: UICollectionViewCell {
         contentView.addSubview(imageView)
         contentView.addSubview(label)
         addConstraints()
+        
+        contentView.layer.shadowColor = UIColor.black.cgColor
+        contentView.layer.shadowOpacity = 3
+        contentView.layer.shadowOffset = .zero
+        contentView.layer.shadowRadius = 10
     }
     
     override func prepareForReuse() {

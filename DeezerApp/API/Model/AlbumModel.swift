@@ -11,11 +11,19 @@ struct AlbumResponse: Codable {
     let data: [Tracks]
 }
 
-struct Tracks: Codable {
+struct Tracks: Codable, Equatable {
+    let id: Int?
     let title: String?
     let duration: Int?
     let md5_image: String?
     let preview: String?
+    
+    static func == (lhs: Tracks, rhs: Tracks) -> Bool {
+        if lhs.id == rhs.id {
+            return true
+        }
+        return false
+    }
 }
 
 

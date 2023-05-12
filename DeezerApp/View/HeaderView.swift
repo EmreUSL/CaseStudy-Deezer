@@ -12,7 +12,7 @@ class HeaderView: UIView {
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleToFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 7
         imageView.backgroundColor = UIColor.red
@@ -22,6 +22,11 @@ class HeaderView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(imageView)
+       
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 9
+        layer.shadowOffset = .zero
+        layer.shadowRadius = 10
     }
     
     required init?(coder: NSCoder) {
@@ -30,10 +35,7 @@ class HeaderView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        imageView.frame = CGRect(x: 0,
-                                 y: 20,
-                                 width: 500,
-                                 height: 200)
+        imageView.frame = self.frame
     }
     
     public func configureHeader(imageURL: String?) {

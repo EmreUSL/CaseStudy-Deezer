@@ -86,13 +86,16 @@ final class LikeView: UIViewController {
             self.collectionView.reloadData()
         }
     }
+    
+ 
 }
 
 extension LikeView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if page == .like {
-            return 2
+            self.reloadCollectionView()
+            return UserDefaultsManager.shared.favoriteTracks.count
         } else {
             return cellModel.count
         }
@@ -103,13 +106,9 @@ extension LikeView: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
                                                       for: indexPath) as! DetailViewCell
         
         if page == .like {
-            
+            cell.configureCell(item: UserDefaultsManager.shared.favoriteTracks[indexPath.item], image: albumImage)
         } else {
-            if let name = cellModel[indexPath.item].title  {
-                if let duration = cellModel[indexPath.item].duration {
-                    cell.configureCell(name: name, image: albumImage, duration: duration)
-                }
-            }
+            cell.configureCell(item: cellModel[indexPath.item], image: albumImage)
         }
 
         cell.layer.cornerRadius = 5
@@ -137,49 +136,3 @@ extension LikeView: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     }
 }
 
-
-
-
-/* import Foundation
-
-struct ArtistResponse: Codable {
-    let id: Int
-    let name: String
-    let link: String
-    let picture: String
-    let nbAlbum: Int
-    let nbFan: Int
-    let radio: Bool
-    let tracklist: String
-    let type: String
-    
-    enum CodingKeys: String, CodingKey {
-        case id, name, link, picture, nbAlbum, nbFan, radio, tracklist, type
-    }
-}
-
-struct TracklistResponse: Codable {
-    let data: [Track]
-    
-    struct Track: Codable {
-        let id: Int
-        let title: String
-        let album: Album
-        
-        struct Album: Codable {
-            let id: Int
-            let title: String
-            let cover: String
-            let releaseDate: String
-            
-            enum CodingKeys: String, CodingKey {
-                case id, title, cover, releaseDate = "release_date"
-            }
-        }
-    }
-    
-    enum CodingKeys: String, CodingKey {
-        case data
-    }
-}
-*/

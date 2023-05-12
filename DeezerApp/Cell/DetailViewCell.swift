@@ -12,6 +12,8 @@ import AVFoundation
 class DetailViewCell: UICollectionViewCell {
     
     var player: AVPlayer?
+    var track: Tracks?
+    var isFavorite: Bool = false
     
     private let cellImageView: UIImageView = {
         let imageView = UIImageView()
@@ -44,8 +46,25 @@ class DetailViewCell: UICollectionViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.imageView?.contentMode = .scaleAspectFit
         button.tintColor = .white
+        button.addTarget(self, action: #selector(didTapLikeButton), for: .touchUpInside)
         return button
     }()
+    
+    @objc func didTapLikeButton() {
+        if isFavorite {
+            button.setImage(UIImage(systemName: "heart"), for: .normal)
+            UserDefaultsManager.shared.favoriteTracks.removeAll(where: {$0 == self.track})
+            UserDefaultsManager.shared.saveData()
+            self.isFavorite = false
+        }else {
+            if let track = track {
+                UserDefaultsManager.shared.favoriteTracks.append(track)
+                UserDefaultsManager.shared.saveData()
+                self.isFavorite = true
+                button.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            }
+        }
+    }
     
     static let identifier = "DetailViewCell"
     
@@ -66,11 +85,18 @@ class DetailViewCell: UICollectionViewCell {
         fatalError()
     }
     
-    public func configureCell(name: String, image: String, duration: Int) {
-        label.text = name
+    public func configureCell(item: Tracks, image: String) {
+        if let name = item.title , let duration = item.duration {
+            self.track = item
+            label.text = name
+            minuteLabel.text = String(format: "\(duration / 60):%02d", duration % 60)
+            
+            if UserDefaultsManager.shared.favoriteTracks.contains(where: {$0 == self.track}) {
+                self.isFavorite = true
+                button.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            }
+        }
         cellImageView.kf.setImage(with: URL(string: image))
-        
-        minuteLabel.text = String(format: "\(duration / 60):%02d", duration % 60)
     }
     
     public func playSound(preview: String) {

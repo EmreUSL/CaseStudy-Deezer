@@ -30,9 +30,10 @@ class ArtistDetailViewCell: UITableViewCell {
     private let albumLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.numberOfLines = 0
+        label.numberOfLines = 1
         label.font = .boldSystemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .boldSystemFont(ofSize: 16)
         return label
     }()
     
@@ -78,9 +79,11 @@ class ArtistDetailViewCell: UITableViewCell {
             
             albumLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
             albumLabel.leadingAnchor.constraint(equalTo: cellImageView.trailingAnchor, constant: 30),
+            albumLabel.widthAnchor.constraint(equalToConstant: 200),
             
-            dateLabel.topAnchor.constraint(equalTo: albumLabel.bottomAnchor, constant: 10),
             dateLabel.leadingAnchor.constraint(equalTo: albumLabel.leadingAnchor),
+            dateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
+            
         ])
     }
     

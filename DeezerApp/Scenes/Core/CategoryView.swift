@@ -22,6 +22,8 @@ final class CategoryView: UIViewController {
     var page: Page = .category
     var id: Int = 0
     
+    var viewTitle: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +35,7 @@ final class CategoryView: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         if self.page == .category {
+            UserDefaultsManager.shared.getData()
             getCategory()
         } else {
             getArtist()
@@ -133,12 +136,12 @@ extension CategoryView: UICollectionViewDelegate, UICollectionViewDataSource, UI
             if let id = cellModel[indexPath.item].id {
                 vc.id = id
             }
+            vc.viewTitle = cellModel[indexPath.item].name!
             navigationController?.pushViewController(vc, animated: true)
         } else {
             let vc = ArtistView()
             
             if let id = cellModel[indexPath.item].id {
-                print(id)
                 vc.id = id
             }
             

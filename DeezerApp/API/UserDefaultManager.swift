@@ -13,15 +13,29 @@ class UserDefaultsManager {
     
     private let userDefaults: UserDefaults
     
+    var favoriteTracks = [Tracks]()
+    
     private init() {
         self.userDefaults = UserDefaults.standard
     }
     
-    func saveData(_ data: AnyObject, forkey key: String) {
-        userDefaults.set(data, forKey: key)
+    func saveData() {
+        do {
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(favoriteTracks)
+            UserDefaults.standard.set(data, forKey: "favorites")
+        } catch {
+            print("Save Error")
+        }
     }
     
-    func getData(forkey key:String) -> Any? {
-        return userDefaults.object(forKey: key)
+    func getData() {
+        guard let data = UserDefaults.standard.data(forKey: "favorites") else {return}
+        do {
+            let decoder = JSONDecoder()
+            self.favoriteTracks = try decoder.decode([Tracks].self, from: data)
+        } catch {
+            print("Fetch Error")
+        }
     }
 }

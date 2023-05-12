@@ -21,12 +21,20 @@ final class TabbarView: UITabBarController {
 
     private func setupColor() {
         view.backgroundColor = .systemBackground
-        tabBar.tintColor = UIColor.label
+        tabBar.barTintColor = UIColor.black.withAlphaComponent(0.3)
+        tabBar.isTranslucent = false
+        tabBar.barStyle = .black
+        tabBar.tintColor = UIColor.white
+        tabBar.itemPositioning = .fill
+        tabBar.backgroundColor = UIColor(named: "323B61")
     }
     
     private func setImageTabBarItem() {
         CategoryVC.tabBarItem.image = UIImage(systemName: "music.note")
         LikeSceneVC.tabBarItem.image = UIImage(systemName: "heart")
+        
+        CategoryVC.title = "Category"
+        LikeSceneVC.title = "Follow List"
     }
     
     private func setViewControllers() {
