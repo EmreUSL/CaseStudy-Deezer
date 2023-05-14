@@ -19,4 +19,9 @@ class MusicPlayer {
         player = AVPlayer(playerItem: playerItem)
         player!.play()
     }
+    
+    func stopMusic() {
+        player?.pause()
+        player = nil
+    }
 }

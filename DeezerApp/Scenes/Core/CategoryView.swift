@@ -28,6 +28,7 @@ final class CategoryView: UIViewController {
         super.viewDidLoad()
         
         view.layer.insertSublayer(Background.shared.backgroundGradientLayer(view), at:0)
+       
      
         configureUI()
         configureCollectionView()
@@ -39,12 +40,13 @@ final class CategoryView: UIViewController {
             getCategory()
         } else {
             getArtist()
+            title = viewTitle
         }
     }
     
     func configureUI() {
         title = "Category"
-        self.navigationController?.navigationBar.barTintColor = UIColor.white
+        navigationController?.navigationBar.tintColor = UIColor.black
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     

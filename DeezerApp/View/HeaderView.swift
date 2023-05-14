@@ -14,15 +14,13 @@ class HeaderView: UIView {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 7
-        imageView.backgroundColor = UIColor.red
         return imageView
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(imageView)
-       
+        
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 9
         layer.shadowOffset = .zero

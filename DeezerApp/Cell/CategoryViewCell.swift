@@ -48,7 +48,7 @@ class CategoryViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
- 
+        
     }
     
     required init?(coder: NSCoder) {

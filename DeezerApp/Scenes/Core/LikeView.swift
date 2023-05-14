@@ -37,10 +37,15 @@ final class LikeView: UIViewController {
         }
     }
     
+    deinit {
+        MusicPlayer.shared.stopMusic()
+    }
+    
     func configureUI() {
         title = viewTitle
         view.backgroundColor = UIColor.red
         navigationController?.navigationBar.prefersLargeTitles = true
+        
     }
     
     func configureCollectionView() {
@@ -126,7 +131,10 @@ extension LikeView: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if page == .like {
-            
+            let selectedCell = collectionView.cellForItem(at: indexPath) as! DetailViewCell
+            if let preview = UserDefaultsManager.shared.favoriteTracks[indexPath.item].preview {
+                selectedCell.playSound(preview: preview)
+            }
         } else {
             let selectedCell = collectionView.cellForItem(at: indexPath) as! DetailViewCell
             if let preview = cellModel[indexPath.item].preview {

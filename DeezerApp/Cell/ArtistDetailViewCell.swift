@@ -47,7 +47,7 @@ class ArtistDetailViewCell: UITableViewCell {
     }()
     
     static let identifier = "ArtistDetailViewCell"
-
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = UIColor.white.withAlphaComponent(0.0)
@@ -57,7 +57,7 @@ class ArtistDetailViewCell: UITableViewCell {
         view.addSubview(dateLabel)
         applyConstraint()
     }
-        
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -96,5 +96,5 @@ class ArtistDetailViewCell: UITableViewCell {
         
         cellImageView.kf.setImage(with: URL(string: url))
     }
-
+    
 }

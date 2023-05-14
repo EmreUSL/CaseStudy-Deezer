@@ -57,7 +57,7 @@ class ArtistView: UIViewController {
         
         let headerView = HeaderView(frame: CGRect(x: 0, y: 0,
                                                       width: view.bounds.width,
-                                                      height: 250))
+                                                      height: 200))
         
        
         tableView.tableHeaderView = headerView

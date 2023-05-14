@@ -15,7 +15,6 @@ struct Tracks: Codable, Equatable {
     let id: Int?
     let title: String?
     let duration: Int?
-    let md5_image: String?
     let preview: String?
     
     static func == (lhs: Tracks, rhs: Tracks) -> Bool {

@@ -19,7 +19,7 @@ class DetailViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleToFill
-        imageView.backgroundColor = UIColor.blue
+        imageView.backgroundColor = UIColor.darkGray.withAlphaComponent(0.6)
         return imageView
     }()
     
@@ -56,7 +56,7 @@ class DetailViewCell: UICollectionViewCell {
             UserDefaultsManager.shared.favoriteTracks.removeAll(where: {$0 == self.track})
             UserDefaultsManager.shared.saveData()
             self.isFavorite = false
-        }else {
+        } else {
             if let track = track {
                 UserDefaultsManager.shared.favoriteTracks.append(track)
                 UserDefaultsManager.shared.saveData()
@@ -64,6 +64,10 @@ class DetailViewCell: UICollectionViewCell {
                 button.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             }
         }
+    }
+    
+    override func prepareForReuse() {
+        button.setImage(UIImage(systemName: "heart"), for: .normal)
     }
     
     static let identifier = "DetailViewCell"
@@ -91,12 +95,18 @@ class DetailViewCell: UICollectionViewCell {
             label.text = name
             minuteLabel.text = String(format: "\(duration / 60):%02d", duration % 60)
             
+            
             if UserDefaultsManager.shared.favoriteTracks.contains(where: {$0 == self.track}) {
                 self.isFavorite = true
                 button.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             }
         }
         cellImageView.kf.setImage(with: URL(string: image))
+        
+        /* Bana verilen APİ'lerden şarkıların resim verilerine erişemedim.
+         Eğer bu resimlere erişmek istersem , albüm sayısı kadar istek atmam gerekiyor
+         Bu durum işleyiş açısından çok yanlış bir davranış oluyordu.
+         */
     }
     
     public func playSound(preview: String) {
@@ -118,7 +128,7 @@ class DetailViewCell: UICollectionViewCell {
             
             minuteLabel.leadingAnchor.constraint(equalTo: label.leadingAnchor),
             minuteLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15)
-
+            
         ])
     }
 }
