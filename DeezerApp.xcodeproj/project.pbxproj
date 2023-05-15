@@ -30,7 +30,6 @@
 		649628632A0937CA00A86768 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 649628612A0937CA00A86768 /* LaunchScreen.storyboard */; };
 		64EB17F22A09449A0055AEA7 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EB17F12A09449A0055AEA7 /* CategoryView.swift */; };
 		64EB17F42A0944A70055AEA7 /* LikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EB17F32A0944A70055AEA7 /* LikeView.swift */; };
-		64ED8CEC2A0D767900090D55 /* Gotham-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 64ED8CEB2A0D767900090D55 /* Gotham-Bold.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,7 +56,6 @@
 		649628642A0937CA00A86768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64EB17F12A09449A0055AEA7 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		64EB17F32A0944A70055AEA7 /* LikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeView.swift; sourceTree = "<group>"; };
-		64ED8CEB2A0D767900090D55 /* Gotham-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Gotham-Bold.otf"; path = "../../../Gotham-Bold.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,7 +155,6 @@
 				649628562A0937C900A86768 /* AppDelegate.swift */,
 				649628582A0937C900A86768 /* SceneDelegate.swift */,
 				6496285F2A0937CA00A86768 /* Assets.xcassets */,
-				64ED8CEB2A0D767900090D55 /* Gotham-Bold.otf */,
 				649628612A0937CA00A86768 /* LaunchScreen.storyboard */,
 				649628642A0937CA00A86768 /* Info.plist */,
 			);
@@ -257,7 +254,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64ED8CEC2A0D767900090D55 /* Gotham-Bold.otf in Resources */,
 				649628632A0937CA00A86768 /* LaunchScreen.storyboard in Resources */,
 				649628602A0937CA00A86768 /* Assets.xcassets in Resources */,
 			);
